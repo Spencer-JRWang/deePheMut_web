@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    background-image: url('../figure/5uvJN.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 0.5s ease-in-out;
+}
+.container {
+    height: 95vh;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    width: 800px;
+    height: 1000px;
+    background-color: #ffffff;
+    padding: 10px 30px 40px;
+    transition: background-color 0.5s ease-in-out;
+}
+.card h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+.drop_box {
+    margin: 10px 0;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 3px dotted #a3a3a3;
+    border-radius: 5px;
+}
+.drop_box_submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+}
+.drop_box h4 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #2e2e2e;
+}
+.drop_box p {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: #a3a3a3;
+}
+.btn {
+    text-decoration: none;
+    background-color: #1f77b4;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+.btn:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #1f77b4;
+    padding: 10px 20px;
+    border: none;
+    outline: 1px solid #010101;
+}
+.btn:disabled {
+    cursor: not-allowed;
+    background-color: grey;
+}
+.btn:disabled:hover {
+    /* 在这里添加你想要的样式 */
+    cursor: not-allowed;
+    background-color: #ccc; /* 示例: 禁用状态下的背景色 */
+    color: #666; /* 示例: 禁用状态下的文本颜色 */
+}
+.btn_change_theme {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    text-decoration: none;
+    background-color: #1f77b4;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+.btn_change_theme:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #1f77b4;
+    padding: 10px 20px;
+    border: none;
+    outline: 1px solid #010101;
+}
+.btn_submit {
+    text-decoration: none;
+    background-color: rgba(138, 38, 31, 0.9);
+    color: #ffffff;
+    padding: 10px 50px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+    font-size: 12px;
+}
+.btn_submit:hover {
+    text-decoration: none;
+    background-color: #ffffff;
+    color: rgba(138, 38, 31, 0.9);
+    padding: 10px 20px;
+    border: none;
+    outline: 1px solid #010101;
+}
+
+.form input {
+    margin: 10px 0;
+    width: 100%;
+    background-color: #e2e2e2;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+}
+.search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+.search-input:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+.mutation-input {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+}
+.footer {
+    position: relative;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    font-size: 12px;
+    
+}
+.imageContainer {
+    position: relative;
+    transition: transform 3s ease;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+}
+/* .imageContainer:hover {
+    transform: rotate(360deg);
+} */
+a {
+    text-decoration: none;
+    color: #5dabff;
+    transition: color 0.3s;
+}
+a:hover {
+    color: #0056b3;
+}
+.clock {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.dark-theme {
+    background-image: url('../figure/6193479.jpg');
+}
+.dark-theme .card {
+    background-color: #444;
+    color: #fff;
+}
+.dark-theme .btn {
+    background-color: #555;
+    color: #fff;
+}
+.dark-theme .btn:hover {
+    background-color: #666;
+    color: #fff;
+}
+.dark-theme .btn_change_theme {
+    background-color: #555;
+    color: #fff;
+}
+.dark-theme .btn_change_theme:hover {
+    background-color: #666;
+    color: #fff;
+}
+.dark-theme .footer {
+    color: #fff;
+}
+.dark-theme .drop_box h4 {
+    color: #fff;
+}
+.dark-theme .drop_box h3 {
+    color: #fff;
+}
+.dark-theme .menu a{
+    background-color: #555;
+    color: #fff;
+    border: #fff;
+}
+.dark-theme .menu a:hover{
+    background-color: #fff;
+    color: #555;
+    border: #555;
+}
+.menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #1f77b4;
+    border: 1px solid #1f77b4;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+.menu a:hover {
+    background-color: #fff;
+    color: #1f77b4;
+}

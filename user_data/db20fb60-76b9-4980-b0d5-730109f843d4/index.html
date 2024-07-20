@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>deePheMut progress</title>
+    <link rel="icon" href="../../figure/web_icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../inprocess.css">
+</head>
+<body>
+<img src="../../figure/logo-transparent-png.png" width="360" class="imageContainerr"/>
+<div id="container_a" style="height: 80%">
+    <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.0/files/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="../../echarts_cartoon.js"></script>
+</div>
+<h4 style="text-align: center;">deep and precise prediction of mutations to different phenotypes</h4>
+<br/>
+
+
+<div class="container_box">
+    <div class="card">
+        <div class = "image">
+            <canvas id="myChart"></canvas>
+            <script src="../../barchart.js"></script>
+        </div>
+        <div class="content">
+            <h1> Status: Running</h1>
+            <hr style="height: 3px; background-color: black; border: none;">
+            <br>
+            <h2> Your Query ID: db20fb60-76b9-4980-b0d5-730109f843d4</h2>
+            <br>
+            <h2> Your Protein is: alpl</h2>
+            <br>
+            <h2> Your Email is: 3338561620@qq.com</h2>
+            <br>
+        </div>
+    </div>
+</div>
+<div class="menu">
+    <a href="../../index.php">HOME</a>
+    <a href="../../run.php">RUN</a>
+    <a href="../../guide.html">GUIDE</a>
+    <a href="../../feedback.php">FEEDBACK</a>
+    <button class="btn_change_theme" id="toggleBackgroundBtn">Change Theme</button>
+</div>
+<script>
+    document.getElementById('toggleBackgroundBtn').addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+    });
+</script>
+<div class="footer">
+    Department of Bioinformatics,
+    Medical School of Soochow University <br>
+    Contact us: <a href="mailto:spencer-jrwang@foxmail.com">spencer-jrwang@foxmail.com</a><br>
+    Source Code: <a href="https://github.com/Spencer-JRWang/APMA">Github</a>
+</div>
+</body>
+</html>
