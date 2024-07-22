@@ -168,7 +168,6 @@
 <br/>
 <br/>
 <div class="footer">
-    <!-- 底部内容 -->
     Department of Bioinformatics,
     Medical School of Soochow University <br>
     Contact: <a href="mailto:spencer-jrwang@foxmail.com">spencer-jrwang@foxmail.com</a><br>
