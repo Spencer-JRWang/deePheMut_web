@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="figure/web_icon.ico" type="image/x-icon">
     <title>deePheMut user guide</title>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
@@ -89,8 +90,13 @@
             text-align: center;
             margin: 20px 0;
         }
+        #map-container {
+            text-align: center;
+            width: 100%;
+            height: 300px;
+        }
         .screenshot img {
-            max-width: 60%;
+            max-width: 50%;
             height: auto;
         }
         a {
@@ -100,6 +106,33 @@
         }
         a:hover {
             color: #0056b3;
+        }
+        #sidebar {
+            position: fixed;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            width: 150px;
+            font-size: small;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #sidebar ul li {
+            margin: 10px 0;
+        }
+        #sidebar ul li a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        #sidebar ul li a:hover {
+            text-decoration: underline;
         }
         .footer {
             position: relative;
@@ -190,14 +223,178 @@
 
             <div class="section">
                 <h2>2. Outcome preview</h2>
-
-                <p></p>
+                <h3>2.1 Preview webpage overview</h3>
+                <p>
+                    (1) When the task is successfully completed, an email will be sent to your email. 
+                    You can click the link in the email or refresh the original page to enter the preview webpage.
+                    The navigation bar on the right contains Summary, Feature Calculation, Model Construction, 
+                    Model Explanation and PhenoScores respectively. Click the corresponding link to enter the corresponding location of the page.
+                </p>
                 <div class="screenshot">
-                    <img src="screenshot-placeholder.png">
+                    <img src="figure/navi.png">
                 </div>
+
+                <p>
+                    (2) You can download it by clicking the Download button for each chart, and you can download all the data 
+                    by clicking the download button at the end of the page.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/download.png">
+                </div>
+
+                <h3>2.2 Feature calculation</h3>
+                <p>
+                    (1) Mutation parameter distribution plot and PCA plot, the first 15 images represent the performance of phenotypes in different parameters. 
+                    When the sample size is greater than 30, t test in statistical test will be adopted, otherwise wilcoxon test will be used, 
+                    where ** represents 0.01 < pvalue < 0.05, *** indicates pvalue < 0.001, the last picture shows the results of principal component analysis of 
+                    mutations of different phenotypes. The distribution of principal component analysis shows the distribution of different phenotypic mutations on the
+                     first two principal components. The circle and points of different color represent the different phenotypes.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/features.png">
+                </div>
+                <p>
+                    (2) Destribution of dynamic network based on ANM/ENM model, the plot shows the distribution of the dynamic features
+                    (Effectiveness, Sensitivity, Stiffness, DFI, MSF) by residue, the bar plot in grey color shows the dynamic features' 
+                    disctribution in all residues, the scatter in different colors show the distribution of mutations of different 
+                    mutations dynamic features. The greater of residue's effectiveness means the mutation in this position is less effective 
+                    to break the origin graph's stucture, while the greater of residue's sensitivity means the mutation in this position is more 
+                    effective to break the graph's origin structure.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/dynamic.png">
+                </div>
+                <p>
+                    (3) The multi-phenotypes will first be divided into several binary classification, then the ROC plots is 
+                    generated based on the origin parameter, the area under ROC curve(AUC) will be adjust to more than 0.5 by 
+                    reversing the labels(0 or 1) of phenotypes. The greater AUC means the parameter can classify the phenotypes 
+                    better by linear state.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/feature_roc.png">
+                </div>
+                <h3>2.3 Model construction</h3>
+                <p>
+                    (1) Plot of rfe feature selection and average precision score this plot shows the process of rfe feature selection, 
+                    rfe eliminates the features one by one, and gradually removes the features to the best combination of features. 
+                    At the same time, the results obtained after each elimination of rfe are cross-validated by 5 straighted folds, 
+                    and the average accuracy is obtained to evaluate the results of rfe feature elimination.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/rfe.png">
+                </div>
+
+                <p>
+                    (2) Spearman correlation heatmap, this heatmap illustrates Spearman correlation coefficients computed between 
+                    protein mutations and 15 selected features. Color intensity reflects the strength of correlation: bluer shades 
+                    indicate positive correlations, while redder shades indicate negative correlations. Numeric values adjacent 
+                    to the color bar denote the magnitude of correlation coefficients.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/spearman.png">
+                </div>
+
+                <p>
+                    (3) The beeswarm plots for model explanation These plots shows the explanation of each classification using LightGBM model. 
+                    The horizontal coordinate represents SHAP value(the SHapley Additive exPlanations) of the model, which are used to quantify 
+                    the impact of each feature on the predicted result. The larger the value on the horizontal coordinate, the greater the positive 
+                    influence of the feature on the prediction result. The smaller the value, the greater the negative influence of the feature on 
+                    the prediction result. The ordinate represents the name of the feature, and the feature is ordered in order of importance, with the 
+                    most important feature at the top of the graph. Each dot represents a sample, the color of the dot represents the size of the feature 
+                    value, and the color gradients from blue (smaller feature value) to red (larger feature value). The distribution of points reflects the 
+                    influence of different values of this feature on the model prediction, and the density of points represents the distribution of samples.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/beeswarm.png">
+                </div>
+
+                <p>
+                    (3) Machine learning model explanation force plot, these force plots generated using SHAP visualizes the 
+                    impact of features on the model's predictions. These plots show the parameters used by LightGBM to predict each 
+                    mutation and the positive and negative contributions of each parameter to the model classification. 
+                    Each feature's contribution to the prediction is represented by the length and direction(colors). 
+                    Positive and negative contributions are indicated by pointing upwards(red) and downwards(blue), respectively.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/force.png">
+                </div>
+
+                <h3>2.4 PhenoScores</h3>
+                <p>
+                    (1) Boxplot of PhenoScores, the box plot shows the distribution of phenoscores for groups A, B and C under labels 1 and 2.
+                     The horizontal axis represents the binary label, and the vertical axis represents the size of the PhenoScore. 
+                     The PhenoScore is generated using 5-straighted k-fold cross validation predict.
+                     Different colors represent different groups: Group A is shown in blue and Group B is shown in orange. By comparing 
+                     the boxplots of different colors, we can observe the differences in PhenoScore distribution of each group under different labels.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/pheno.png">
+                </div>
+
+                <p>
+                    (2) ROC figure of PhenoScore, this figure presents the Receiver Operating Characteristic (ROC) curve for the PhenoScore model in a binary classification task. 
+                    The x-axis represents the False Positive Rate (FPR), and the y-axis represents the True Positive Rate (TPR). 
+                    The area under the curve (AUC) is 0.XX, indicating the model's overall performance in distinguishing between positive and 
+                    negative samples. An AUC value close to 1 signifies high discriminative ability, whereas an AUC value of 0.5 indicates performance 
+                    equivalent to random guessing.
+                </p>
+                <div class="screenshot">
+                    <img src="figure/ml.png">
+                </div>
+
+                <h2>3. Contact us</h2>
+                <h3>3.1 Developer's information</h3>
+                <p>
+                    (1) Network Protemics Lab, Department of Bioinformatics, Medical School of Soochow University
+                    <br>
+                    (2) Contact developer: <a href="mailto:spencer-jrwang@foxmail.com">Wang Jingran</a><br>
+                </p>
+
+                <h3>3.2 Location</h3>
+                <p>
+                    
+                    
+                </p>
+                <div id="map-container"></div>
+                <script src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=z38PAQg7IBxfqpy4OsmhxYbzfawlulxG"></script>
+                <script>
+                    var map = new BMapGL.Map('map-container');
+                    map.centerAndZoom(new BMapGL.Point(120.738467,31.280497), 17);
+                    map.enableScrollWheelZoom(true);
+                    // 创建点标记
+                    var marker1 = new BMapGL.Marker(new BMapGL.Point(120.738292,31.280817));
+                    // 在地图上添加点标记
+                    map.addOverlay(marker1);
+                </script>
+
             </div>
         </div>
     </div>
+
+
+    <div id="sidebar">
+        <strong>Navigation</strong>
+        <ul id="nav-links">
+            <!-- JavaScript will automatically generate navigation here. -->
+        </ul>
+    </div>
+
+    <script>
+    window.onload = function() {
+        const navLinks = document.getElementById('nav-links');
+        const headings = document.querySelectorAll('.container h3');
+        headings.forEach((heading, index) => {
+            const id = 'heading-' + index;
+            heading.id = id;
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + id;
+            a.innerText = heading.innerText;
+            li.appendChild(a);
+            navLinks.appendChild(li);
+        });
+    };
+    </script>
 
     <div class="footer">
         Network Protemics Lab <br>
